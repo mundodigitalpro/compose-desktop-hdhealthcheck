@@ -5,7 +5,7 @@ plugins {
     id("org.jetbrains.compose") version "1.4.0"
 }
 
-group = "com.example"
+group = "com.hdhealthcheck"
 version = "1.0.0"
 
 repositories {
@@ -36,7 +36,7 @@ compose.desktop {
 
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "ComposeDesktopTemplate"
+            packageName = "HDHealthCheck"
             packageVersion = "1.0.0"
         }
     }

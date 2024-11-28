@@ -1,1 +1,1 @@
-rootProject.name = "compose-desktop-template"
+rootProject.name = "compose-desktop-hdhealthcheck"

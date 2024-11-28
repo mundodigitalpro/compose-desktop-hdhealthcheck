@@ -11,7 +11,7 @@ import androidx.compose.ui.window.application
 fun main() = application {
     Window(
         onCloseRequest = ::exitApplication,
-        title = "Compose Desktop Template"
+        title = "HD Health Check"
     ) {
         App()
     }
@@ -24,7 +24,7 @@ fun App() {
             modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.Center
         ) {
-            Text("Welcome to Compose Desktop!")
+            Text("Welcome to HD Health Check!")
         }
     }
 }
