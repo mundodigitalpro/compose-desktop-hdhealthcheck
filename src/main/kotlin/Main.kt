@@ -7,8 +7,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
+import org.jetbrains.skiko.SystemTheme
+import org.jetbrains.skiko.currentSystemTheme
 
 fun main() = application {
+    System.setProperty("skiko.renderApi", "SOFTWARE")
     Window(
         onCloseRequest = ::exitApplication,
         title = "HD Health Check"
