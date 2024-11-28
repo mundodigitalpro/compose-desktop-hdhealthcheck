@@ -1,28 +1,51 @@
-# Compose Desktop Template
+# HD Health Check
 
-A clean, minimal template for Compose Desktop applications.
+A desktop application built with Compose Desktop to monitor and analyze hard drive health status.
 
-## Prerequisites
+## Features (Planned)
 
-- Java 17 or higher
-- Gradle (will be installed by setup script if not present)
+- Hard drive health status monitoring
+- S.M.A.R.T. data analysis
+- Disk space usage visualization
+- Performance metrics tracking
+- Health alerts and notifications
 
-## Setup
+## Tech Stack
 
-1. Run the setup script to verify/install required dependencies:
-   ```powershell
-   .\setup-dev-env.ps1
-   ```
+- Kotlin
+- Compose Desktop
+- Material Design 3
+- Kotlin Coroutines
 
-2. Build the project:
-   ```bash
-   ./gradlew build
-   ```
+## Development Setup
 
-3. Run the application:
-   ```bash
-   ./gradlew run
-   ```
+### Prerequisites
+
+- JDK 17 or later
+- Gradle 8.3 or later
+- IntelliJ IDEA (recommended) or any IDE with Kotlin support
+
+### Building from Source
+
+1. Clone the repository:
+```bash
+git clone https://github.com/mundodigitalpro/compose-desktop-hdhealthcheck.git
+```
+
+2. Navigate to the project directory:
+```bash
+cd compose-desktop-hdhealthcheck
+```
+
+3. Build the project:
+```bash
+./gradlew build
+```
+
+4. Run the application:
+```bash
+./gradlew run
+```
 
 ## Project Structure
 
@@ -31,13 +54,6 @@ A clean, minimal template for Compose Desktop applications.
 - `build.gradle.kts` - Gradle build configuration
 - `settings.gradle.kts` - Gradle settings
 - `setup-dev-env.ps1` - Development environment setup script
-
-## Features
-
-- Material 3 Design
-- Modern Kotlin and Compose Desktop setup
-- Development environment verification script
-- Clean project structure
 
 ## Building
 
@@ -48,3 +64,11 @@ To create a distribution:
 ```
 
 This will create platform-specific distributions in `build/compose/binaries`.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
