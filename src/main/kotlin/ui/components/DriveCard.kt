@@ -29,10 +29,15 @@ fun DriveCard(driveInfo: DriveInfo) {
             
             Row(
                 modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
                     text = "${formatBytes(driveInfo.usedSpace)} / ${formatBytes(driveInfo.totalSpace)}",
+                    style = MaterialTheme.typography.bodyMedium
+                )
+                Text(
+                    text = "Type: ${driveInfo.diskType}",
                     style = MaterialTheme.typography.bodyMedium
                 )
             }
