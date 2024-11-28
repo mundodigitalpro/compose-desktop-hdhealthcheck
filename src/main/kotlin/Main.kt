@@ -1,14 +1,14 @@
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
-import org.jetbrains.skiko.SystemTheme
-import org.jetbrains.skiko.currentSystemTheme
+import kotlinx.coroutines.launch
+import services.DriveMonitorService
+import ui.components.DriveCard
+import models.DriveInfo
 
 fun main() = application {
     System.setProperty("skiko.renderApi", "SOFTWARE")
@@ -22,12 +22,38 @@ fun main() = application {
 
 @Composable
 fun App() {
+    val driveMonitorService = remember { DriveMonitorService() }
+    val scope = rememberCoroutineScope()
+    var drives by remember { mutableStateOf<List<DriveInfo>>(emptyList()) }
+    
+    LaunchedEffect(Unit) {
+        scope.launch {
+            driveMonitorService.monitorDrives().collect { driveList ->
+                drives = driveList
+            }
+        }
+    }
+    
     MaterialTheme {
-        Box(
+        Surface(
             modifier = Modifier.fillMaxSize(),
-            contentAlignment = Alignment.Center
+            color = MaterialTheme.colorScheme.background
         ) {
-            Text("Welcome to HD Health Check!")
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(16.dp)
+            ) {
+                Text(
+                    text = "HD Health Check",
+                    style = MaterialTheme.typography.headlineMedium,
+                    modifier = Modifier.padding(bottom = 16.dp)
+                )
+                
+                drives.forEach { drive ->
+                    DriveCard(driveInfo = drive)
+                }
+            }
         }
     }
 }
